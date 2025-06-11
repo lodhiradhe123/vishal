@@ -1,73 +1,65 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Coins } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className=" text-white bg-white/10 px-6 py-2 flex items-center justify-between shadow-lg fixed top-0 left-0 w-full z-50">
-      {/* Logo */}
-      <div className="text-3xl font-bold tracking-wide">उवाच</div>
+    <nav className="bg-white shadow-md fixed top-0 left-0 w-full z-50">
+      <div className="px-4 md:px-8 py-2 flex items-center justify-between">
+        {/* Left: Menu Icon (Mobile) */}
+        <div className="md:hidden">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-gray-800 focus:outline-none"
+          >
+            {isOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
 
-      {/* Mobile menu button */}
-      <div className="md:hidden">
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="focus:outline-none transition-transform duration-300"
-        >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
+        {/* Center: Logo + Title (with centered flex on desktop) */}
+        <div className="flex items-center space-x-2">
+          <img
+            src="/src/assets/Images/logo-bgremoved.png"
+            alt="उवाच Logo"
+            className="w-10 h-10 md:w-14 md:h-14 object-contain"
+          />
+          <span className="text-xl md:text-2xl font-bold text-gray-900 tracking-wide">
+            उवाच
+          </span>
+        </div>
+
+        {/* Right: Coins Display */}
+        <div className="text-yellow-500 flex items-center space-x-1 md:ml-auto">
+          <Coins className="w-6 h-6" />
+          <span className="text-sm font-semibold">0</span>
+        </div>
       </div>
 
-      {/* Links */}
+      {/* Navigation Links */}
       <div
-        className={`absolute md:static top-full left-0 w-full md:w-auto opacity-70  md:bg-transparent md:flex space-y-4 md:space-y-0 md:space-x-8 items-center px-6 md:px-0 py-4 md:py-0 transition-all duration-500 ease-in-out ${
-          isOpen ? "block" : "hidden md:block"
+        className={`md:flex md:items-center md:justify-center md:space-x-8 px-6 md:px-0 py-2 md:py-0 bg-white md:bg-transparent transition-all duration-300 ease-in-out shadow-md md:shadow-none ${
+          isOpen ? "block" : "hidden md:flex"
         }`}
       >
-        <Link
-          to="/"
-          className="block text-lg hover:text-yellow-300 transition-colors duration-300"
-          onClick={() => setIsOpen(false)}
-        >
-          Home
-        </Link>
-        <Link
-          to="/about"
-          className="block text-lg hover:text-yellow-300 transition-colors duration-300"
-          onClick={() => setIsOpen(false)}
-        >
-          About Us
-        </Link>
-        <Link
-          to="/services"
-          className="block text-lg hover:text-yellow-300 transition-colors duration-300"
-          onClick={() => setIsOpen(false)}
-        >
-          Our Services
-        </Link>
-        <Link
-          to="/art-gallery"
-          className="block text-lg hover:text-yellow-300 transition-colors duration-300"
-          onClick={() => setIsOpen(false)}
-        >
-          Art Gallery
-        </Link>
-        <Link
-          to="/be-a-writer"
-          className="block text-lg hover:text-yellow-300 transition-colors duration-300"
-          onClick={() => setIsOpen(false)}
-        >
-          Be a Writer
-        </Link>
-        <Link
-          to="/contact"
-          className="block text-lg hover:text-yellow-300 transition-colors duration-300"
-          onClick={() => setIsOpen(false)}
-        >
-          Contact Us
-        </Link>
+        {[
+          { to: "/", label: "Home" },
+          { to: "/about", label: "About Us" },
+          { to: "/services", label: "Our Services" },
+          { to: "/art-gallery", label: "Art Gallery" },
+          { to: "/be-a-writer", label: "Be a Writer" },
+          { to: "/contact", label: "Contact Us" },
+        ].map(({ to, label }) => (
+          <Link
+            key={to}
+            to={to}
+            onClick={() => setIsOpen(false)}
+            className="block text-base text-gray-700 hover:text-yellow-500 transition-colors duration-200 py-1"
+          >
+            {label}
+          </Link>
+        ))}
       </div>
     </nav>
   );

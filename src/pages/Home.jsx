@@ -1,68 +1,30 @@
 import React from "react";
-import { BookOpenText, Mic, PenTool, Info } from "lucide-react";
+import { BookOpenText, Mic, PenTool, Info, Menu, Coins } from "lucide-react";
 import { motion } from "framer-motion";
+import HeroSection from "../components/Hero";
 
 const Home = () => {
   return (
-    <div className="bg-gray-50 min-h-screen flex flex-col">
+    <div className="bg-[#fdf6ec] min-h-screen flex flex-col font-sans">
       {/* Hero Section */}
-      <header className="relative text-center py-16 px-4 text-white overflow-hidden h-[50vh] md:h-[70vh] flex items-center justify-center">
-        {/* Background Image with slight zoom animation */}
-        <motion.img
-          src="/src/assets/Images/front-background.jpg"
-          alt="Background"
-          className="absolute inset-0 w-full h-full object-cover"
-          initial={{ scale: 1.1 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 8, ease: "easeOut" }} // slow zoom-out
-        />
-
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/60"></div>
-
-        {/* Content with fade + slide up */}
-        <motion.div
-          className="relative z-10 flex flex-col items-center justify-center text-center px-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-        >
-          <h1
-            className="text-5xl md:text-6xl font-extrabold mb-6 tracking-wide drop-shadow-lg"
-            style={{
-              textShadow: "2px 2px 6px rgba(0, 0, 0, 0.7)",
-            }}
-          >
-            उवाच
-          </h1>
-          <p
-            className="text-xl md:text-2xl max-w-xl mx-auto leading-relaxed drop-shadow"
-            style={{
-              textShadow: "1px 1px 4px rgba(0, 0, 0, 0.6)",
-            }}
-          >
-            Bringing Literature to Life with Voice and Words 📚🎙️
-          </p>
-        </motion.div>
-      </header>
-
+      <HeroSection />
       {/* Main Content */}
-      <main className="flex-grow p-4 md:p-6 grid gap-6 md:grid-cols-2">
+      <main className="flex-grow p-6 md:p-10 grid gap-8 md:grid-cols-2 bg-[#fdf6ec]">
         {/* प्रकाशन */}
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="rounded-2xl shadow-lg border bg-white hover:shadow-xl transition-shadow p-6"
+          className="rounded-xl shadow-md border bg-white hover:shadow-xl transition-shadow p-6"
         >
-          <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2 text-blue-600">
+          <h2 className="text-2xl font-semibold mb-3 flex items-center gap-2 text-yellow-700">
             <BookOpenText /> प्रकाशन
           </h2>
-          <p className="text-base text-gray-700 mb-4">
+          <p className="text-gray-800 mb-4">
             उवाच का उद्देश्य है नए और मौलिक साहित्य को आवाज़ देना। पढ़ें बेहतरीन
             रचनाएँ और लेख।
           </p>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md">
+          <button className="bg-yellow-700 hover:bg-yellow-800 text-white px-5 py-2 rounded-lg transition-all">
             Explore Publications
           </button>
         </motion.section>
@@ -72,16 +34,16 @@ const Home = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="rounded-2xl shadow-lg border bg-white hover:shadow-xl transition-shadow p-6"
+          className="rounded-xl shadow-md border bg-white hover:shadow-xl transition-shadow p-6"
         >
-          <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2 text-red-500">
+          <h2 className="text-2xl font-semibold mb-3 flex items-center gap-2 text-rose-700">
             <Mic /> वाणी
           </h2>
-          <p className="text-base text-gray-700 mb-4">
+          <p className="text-gray-800 mb-4">
             सुनिए दिल को छू जाने वाली शायरी, कविताएँ और कहानियाँ — आपके लिए
             आवाज़ में।
           </p>
-          <button className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md">
+          <button className="bg-rose-700 hover:bg-rose-800 text-white px-5 py-2 rounded-lg transition-all">
             Listen Now
           </button>
         </motion.section>
@@ -91,26 +53,26 @@ const Home = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.0 }}
-          className="rounded-2xl shadow-lg border bg-white hover:shadow-xl transition-shadow p-6"
+          className="rounded-xl shadow-md border bg-white hover:shadow-xl transition-shadow p-6"
         >
-          <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2 text-green-600">
+          <h2 className="text-2xl font-semibold mb-3 flex items-center gap-2 text-emerald-700">
             <PenTool /> लेखक बनें
           </h2>
-          <p className="text-base text-gray-700 mb-4">
+          <p className="text-gray-800 mb-4">
             क्या आप भी अपनी आवाज़ को काग़ज़ पर उतारना चाहते हैं? अपनी रचनाएँ
             भेजें और हम उन्हें प्रकाशित करेंगे।
           </p>
           <input
             type="text"
             placeholder="आपका नाम"
-            className="mb-2 w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-green-300"
+            className="mb-2 w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-emerald-300"
           />
           <textarea
             placeholder="अपनी रचना लिखें..."
-            className="mb-2 w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-green-300"
+            className="mb-2 w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-emerald-300"
             rows="4"
           ></textarea>
-          <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md">
+          <button className="bg-emerald-700 hover:bg-emerald-800 text-white px-5 py-2 rounded-lg transition-all">
             Submit Your Work
           </button>
         </motion.section>
@@ -120,12 +82,12 @@ const Home = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2 }}
-          className="rounded-2xl shadow-lg border bg-white hover:shadow-xl transition-shadow p-6"
+          className="rounded-xl shadow-md border bg-white hover:shadow-xl transition-shadow p-6"
         >
-          <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2 text-indigo-500">
+          <h2 className="text-2xl font-semibold mb-3 flex items-center gap-2 text-indigo-700">
             <Info /> हमारे बारे में
           </h2>
-          <p className="text-base text-gray-700">
+          <p className="text-gray-800">
             उवाच एक स्वतंत्र साहित्यिक मंच है जहाँ हम साहित्य को नई ऊँचाइयों तक
             पहुँचाने का प्रयास कर रहे हैं। यहाँ हर स्वर, हर शब्द को विशेष स्थान
             मिलता है।
@@ -134,8 +96,9 @@ const Home = () => {
       </main>
 
       {/* Footer */}
-      <footer className="text-center text-sm text-gray-500 py-4 border-t">
-        © 2025 उवाच. All rights reserved.
+      <footer className="text-center text-sm text-gray-600 py-5 border-t bg-[#fdf4e3]">
+        © 2025 <span className="font-semibold text-yellow-800">उवाच</span>. All
+        rights reserved.
       </footer>
     </div>
   );
