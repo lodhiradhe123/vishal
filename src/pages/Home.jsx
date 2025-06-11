@@ -1,92 +1,106 @@
 import React from "react";
+import { BookOpenText, Mic, PenTool, Info, Menu, Coins } from "lucide-react";
 import { motion } from "framer-motion";
-import { BookOpenText, Mic, PenTool, Info } from "lucide-react";
+import HeroSection from "../components/Hero";
 
 const Home = () => {
   return (
-    <main className="p-6 grid gap-6 md:grid-cols-2">
-      {/* प्रकाशन */}
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="rounded-2xl shadow-lg border bg-white"
-      >
-        <div className="p-6">
-          <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-            <BookOpenText className="text-blue-600" /> प्रकाशन
+    <div className="bg-[#fdf6ec] min-h-screen flex flex-col font-sans">
+      {/* Hero Section */}
+      <HeroSection />
+      {/* Main Content */}
+      <main className="flex-grow p-6 md:p-10 grid gap-8 md:grid-cols-2 bg-[#fdf6ec]">
+        {/* प्रकाशन */}
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="rounded-xl shadow-md border bg-white hover:shadow-xl transition-shadow p-6"
+        >
+          <h2 className="text-2xl font-semibold mb-3 flex items-center gap-2 text-yellow-700">
+            <BookOpenText /> प्रकाशन
           </h2>
-          <p className="text-base text-gray-700">
-            उवाच का उद्देश्य है नए और मौलिक साहित्य को आवाज़ देना।
+          <p className="text-gray-800 mb-4">
+            उवाच का उद्देश्य है नए और मौलिक साहित्य को आवाज़ देना। पढ़ें बेहतरीन
+            रचनाएँ और लेख।
           </p>
-        </div>
-      </motion.section>
+          <button className="bg-yellow-700 hover:bg-yellow-800 text-white px-5 py-2 rounded-lg transition-all">
+            Explore Publications
+          </button>
+        </motion.section>
 
-      {/* वाणी */}
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="rounded-2xl shadow-lg border bg-white"
-      >
-        <div className="p-6">
-          <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-            <Mic className="text-red-500" /> वाणी
+        {/* वाणी */}
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="rounded-xl shadow-md border bg-white hover:shadow-xl transition-shadow p-6"
+        >
+          <h2 className="text-2xl font-semibold mb-3 flex items-center gap-2 text-rose-700">
+            <Mic /> वाणी
           </h2>
-          <p className="text-base text-gray-700">
-            सुनिए रचनाएँ: शायरी, कविताएँ और कहानियाँ।
+          <p className="text-gray-800 mb-4">
+            सुनिए दिल को छू जाने वाली शायरी, कविताएँ और कहानियाँ — आपके लिए
+            आवाज़ में।
           </p>
-        </div>
-      </motion.section>
+          <button className="bg-rose-700 hover:bg-rose-800 text-white px-5 py-2 rounded-lg transition-all">
+            Listen Now
+          </button>
+        </motion.section>
 
-      {/* लेखक बनें */}
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.0 }}
-        className="rounded-2xl shadow-lg border bg-white"
-      >
-        <div className="p-6">
-          <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-            <PenTool className="text-green-600" /> लेखक बनें
+        {/* लेखक बनें */}
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.0 }}
+          className="rounded-xl shadow-md border bg-white hover:shadow-xl transition-shadow p-6"
+        >
+          <h2 className="text-2xl font-semibold mb-3 flex items-center gap-2 text-emerald-700">
+            <PenTool /> लेखक बनें
           </h2>
-          <p className="text-base text-gray-700 mb-2">
-            अगर आप भी अपनी आवाज़ को काग़ज़ पर उतारना चाहते हैं, तो हमें भेजिए
-            अपनी रचनाएँ।
+          <p className="text-gray-800 mb-4">
+            क्या आप भी अपनी आवाज़ को काग़ज़ पर उतारना चाहते हैं? अपनी रचनाएँ
+            भेजें और हम उन्हें प्रकाशित करेंगे।
           </p>
           <input
             type="text"
             placeholder="आपका नाम"
-            className="mb-2 w-full px-4 py-2 border rounded-md"
+            className="mb-2 w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-emerald-300"
           />
           <textarea
-            placeholder="रचना यहाँ लिखें..."
-            className="mb-2 w-full px-4 py-2 border rounded-md"
+            placeholder="अपनी रचना लिखें..."
+            className="mb-2 w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-emerald-300"
             rows="4"
           ></textarea>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md">
-            प्रस्तुत करें
+          <button className="bg-emerald-700 hover:bg-emerald-800 text-white px-5 py-2 rounded-lg transition-all">
+            Submit Your Work
           </button>
-        </div>
-      </motion.section>
+        </motion.section>
 
-      {/* हमारे बारे में */}
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.2 }}
-        className="rounded-2xl shadow-lg border bg-white"
-      >
-        <div className="p-6">
-          <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-            <Info className="text-indigo-500" /> हमारे बारे में
+        {/* हमारे बारे में */}
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2 }}
+          className="rounded-xl shadow-md border bg-white hover:shadow-xl transition-shadow p-6"
+        >
+          <h2 className="text-2xl font-semibold mb-3 flex items-center gap-2 text-indigo-700">
+            <Info /> हमारे बारे में
           </h2>
-          <p className="text-base text-gray-700">
-            उवाच एक स्वतंत्र साहित्यिक मंच है।
+          <p className="text-gray-800">
+            उवाच एक स्वतंत्र साहित्यिक मंच है जहाँ हम साहित्य को नई ऊँचाइयों तक
+            पहुँचाने का प्रयास कर रहे हैं। यहाँ हर स्वर, हर शब्द को विशेष स्थान
+            मिलता है।
           </p>
-        </div>
-      </motion.section>
-    </main>
+        </motion.section>
+      </main>
+
+      {/* Footer */}
+      <footer className="text-center text-sm text-gray-600 py-5 border-t bg-[#fdf4e3]">
+        © 2025 <span className="font-semibold text-yellow-800">उवाच</span>. All
+        rights reserved.
+      </footer>
+    </div>
   );
 };
 
